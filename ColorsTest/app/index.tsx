@@ -10,25 +10,13 @@ import {
 } from "react-router-dom";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/font-awesome/css/font-awesome.min.css";
 import "./index.scss";
 
-const Colors = () => (
-    <div>
-        <h3>Colors</h3>
-    </div>
-)
-
-const People = () => (
-    <div>
-        <h3>People</h3>
-    </div>
-)
-
-const Person = ({ match }: RouteComponentProps<any>) => (
-    <div>
-        <h3>Person {match.params.id}</h3>
-    </div>
-)
+import Nav from "./components/nav/nav";
+import { PeopleList } from "./pages/people/people-list";
+import { EditPerson } from "./pages/people/edit-person";
+import { Colors } from "./pages/colors/colors-admin";
 
 const NoMatch = ({ location }: RouteComponentProps<any>) => (
     <div>
@@ -38,13 +26,16 @@ const NoMatch = ({ location }: RouteComponentProps<any>) => (
 
 const App = () => (
     <div>
-        <Switch>
-            {/* <Redirect from="/" to="/people" /> */}
-            <Route path="/colors" component={Colors} />
-            <Route path="/people/:id" component={Person} />
-            <Route path="/people" component={People} />
-            <Route component={NoMatch} />
-        </Switch>
+        <Nav />
+        <div className="container app-container">
+            <Switch>
+                <Redirect exact from="/" to="/people" />
+                <Route path="/colors" component={Colors} />
+                <Route path="/people/:id" component={EditPerson} />
+                <Route path="/people" component={PeopleList} />
+                <Route component={NoMatch} />
+            </Switch>
+        </div>
     </div>
 )
 
