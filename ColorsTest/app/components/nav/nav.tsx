@@ -1,31 +1,29 @@
 import * as React from "react";
-import { withRouter, RouteComponentProps } from "react-router";
+import { withRouter, RouteComponentProps, NavLink } from "react-router-dom";
 
-interface NavProps extends RouteComponentProps<any> { }
-
-class Nav extends React.Component<NavProps, any> {
+export default class Nav extends React.Component<any, any> {
 
     render() {
         return (
             <div className="ns-nav">
                 <div className="menu-bar">
-                    <div className="menu-bar-title" onClick={() => { this.props.history.push("/people") }}>
-                        Favourite Colors
-                    </div>
-                    <div className="menu-bar-item" onClick={() => { this.props.history.push("/people") }}>
-                        <i className="fa fa-user-circle-o fa-fw"></i>
-                    </div>
-                    <div className="menu-bar-item" onClick={() => { this.goToColors() }}>
-                        <i className="fa fa-paint-brush fa-fw"></i>
-                    </div>
+                    <NavLink to="/people" className="menu-bar-title">
+                        <div>
+                            Favourite Colors
+                        </div>
+                    </NavLink>
+                    <NavLink to="/people" className="menu-bar-item">
+                        <div>
+                            <i className="fa fa-user-circle-o fa-fw"></i>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/colors" className="menu-bar-item">
+                        <div>
+                            <i className="fa fa-paint-brush fa-fw"></i>
+                        </div>
+                    </NavLink>
                 </div>
             </div>
         );
     }
-
-    goToColors(){
-        this.props.history.push("/colors")
-    }
 }
-
-export default withRouter(Nav);

@@ -14,9 +14,9 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import "./index.scss";
 
 import Nav from "./components/nav/nav";
-import { PeopleList } from "./pages/people/people-list";
+import { PeopleList } from "./pages/people/list/people-list";
 import { EditPerson } from "./pages/people/edit-person";
-import { Colors } from "./pages/colors/colors-admin";
+import { ColorAdmin } from "./pages/colors/color-admin";
 
 const NoMatch = ({ location }: RouteComponentProps<any>) => (
     <div>
@@ -30,7 +30,7 @@ const App = () => (
         <div className="container app-container">
             <Switch>
                 <Redirect exact from="/" to="/people" />
-                <Route path="/colors" component={Colors} />
+                <Route path="/colors" component={ColorAdmin} />
                 <Route path="/people/:id" component={EditPerson} />
                 <Route path="/people" component={PeopleList} />
                 <Route component={NoMatch} />

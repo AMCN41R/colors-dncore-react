@@ -7,6 +7,8 @@ $light-gray: #eee;
 $gray-hover: #f5f5f5;
 
 @import "./components/nav/nav";
+@import "./pages/people/list/list";
+@import "./pages/colors/colors";
 
 .app-container {
     margin-top: 10px;
