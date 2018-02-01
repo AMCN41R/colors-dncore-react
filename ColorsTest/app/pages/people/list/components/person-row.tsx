@@ -2,14 +2,14 @@ import * as React from "react";
 import { IPerson } from "../../../../api/people-api";
 import { YesNo } from "../../../../components/yes-no";
 
-interface IPersonRowProps { person: IPerson }
+interface IPersonRowProps { person: IPerson, clickHandler: (id: number) => void }
 
 export class PersonRow extends React.Component<IPersonRowProps, any>{
     render() {
         const person = this.props.person;
 
         return (
-            <tr>
+            <tr onClick={() => this.props.clickHandler(person.id)}>
                 <td>
                     <a>
                         {person.fullName}

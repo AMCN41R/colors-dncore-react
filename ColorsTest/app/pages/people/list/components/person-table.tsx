@@ -2,7 +2,7 @@ import * as React from "react";
 import { IPerson } from "../../../../api/people-api";
 import { PersonRow } from "./person-row";
 
-interface IPersonTableProps { people: IPerson[] }
+interface IPersonTableProps { people: IPerson[], clickHandler: (id: number) => void }
 
 export class PersonTable extends React.Component<IPersonTableProps, any>{
     render() {
@@ -18,7 +18,7 @@ export class PersonTable extends React.Component<IPersonTableProps, any>{
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.people.map(x => <PersonRow key={x.id} person={x}></PersonRow>)}
+                    {this.props.people.map(x => <PersonRow key={x.id} person={x} clickHandler={this.props.clickHandler}></PersonRow>)}
                 </tbody>
             </table>
         );

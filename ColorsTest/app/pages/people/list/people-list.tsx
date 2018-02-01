@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router";
 import { IPerson, PeopleApi } from "../../../api/people-api";
 import { PersonTable } from "./components/person-table";
 
-export interface PeopleListProps { }
+export interface PeopleListProps extends RouteComponentProps<any> { }
 export interface PeopleListState { people: IPerson[]; }
 
 export class PeopleList extends React.Component<PeopleListProps, PeopleListState>{
@@ -26,7 +26,7 @@ export class PeopleList extends React.Component<PeopleListProps, PeopleListState
 
         const content = (
             people && people.length > 0
-                ? <PersonTable people={people}></PersonTable>
+                ? <PersonTable people={people} clickHandler={(id) => this.props.history.push(`/people/${id}`)}></PersonTable>
                 : <div>There are no people to display.</div>
         );
 

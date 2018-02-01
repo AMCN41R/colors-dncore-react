@@ -9,5 +9,4 @@ export namespace ColorsApi {
 export interface IColor {
     id: number;
     name: string;
-    isEnabled: boolean;
 }

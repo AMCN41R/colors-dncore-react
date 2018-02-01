@@ -1,6 +1,8 @@
 import * as React from "react";
 import { IColor, ColorsApi } from "../../api/colors-api";
 
+import ColorItem from "./components/color-item";
+
 interface IColorAdminState { colors: IColor[] }
 
 export class ColorAdmin extends React.Component<any, IColorAdminState> {
@@ -46,16 +48,3 @@ export class ColorAdmin extends React.Component<any, IColorAdminState> {
         );
     }
 }
-
-interface IColorItemProps { color: IColor }
-
-const ColorItem = (props: IColorItemProps) => (
-    <div className="color-item">
-        <span className="color-item-name">{props.color.name}</span>
-        <div className="pull-right flex-container">
-            <div className="action-icon">
-                <i className="fa fa-trash fa-fw"></i>
-            </div>
-        </div>
-    </div>
-);

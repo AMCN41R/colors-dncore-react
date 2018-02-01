@@ -14,8 +14,9 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import "./index.scss";
 
 import Nav from "./components/nav/nav";
+
 import { PeopleList } from "./pages/people/list/people-list";
-import { EditPerson } from "./pages/people/edit-person";
+import { EditPerson } from "./pages/people/edit/edit-person";
 import { ColorAdmin } from "./pages/colors/color-admin";
 
 const NoMatch = ({ location }: RouteComponentProps<any>) => (
